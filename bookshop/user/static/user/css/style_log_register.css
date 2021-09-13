@@ -1,0 +1,90 @@
+.log-register{
+    text-align: center;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+
+}
+.log-in , #sign-up{
+    font-weight: bolder;
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 5px;
+    margin-right: 50px;
+    margin-left: 50px;
+    font-family: SansSerif;
+    color: white;
+    background-color: black;
+    border: 0px;
+
+
+
+}
+.log-in:hover , #sign-up:hover{
+    border: 3px solid black;
+    color: black;
+    background-color: white;
+}
+.div-reg{
+    /*border-radius: 10px;*/
+    /*margin-top: 10px;*/
+    /*box-shadow: 5px 5px 5px black;*/
+    /*font-family: SansSerif;*/
+    /*font-weight: bold;*/
+    /*text-align: center;*/
+    /*padding-bottom: 50px;*/
+    /*padding-top: 50px;*/
+    text-align: center;
+}
+.form-reg{
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    margin-top: 100px;
+}
+.div-log{
+    text-align: center;
+}
+.form-log{
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+input{
+    width: 70%;
+    margin-top: 5px ;
+    margin-bottom: 5px;
+    padding:10px;
+    border: none;
+    border-bottom: 3px solid black;
+}
+input:focus {
+  background-color: lightblue;
+    border: none;
+    border-bottom: 3px solid black;
+}
+.btn-submit , .btn-reg , .btn-delete{
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 5px;
+    font-family: SansSerif;
+    color: white;
+    background-color: black;
+    border: 0px;
+    margin: 20px 50px 10px;
+
+}
+.btn-submit:hover , .btn-reg:hover , .btn-delete:hover{
+        border: 3px solid black;
+    color: black;
+    background-color: white;
+}

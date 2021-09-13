@@ -1,0 +1,34 @@
+{%load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regsiter</title>
+    <link rel="stylesheet" href="{% static 'user/css/style_log_register.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="log-register">
+    <button type="button" class="log-in">log in</button>
+    <button type="button" id="sign-up">sign up</button>
+</div>
+
+<div class="div-reg">
+    <form class="form-reg" method="post" action="home.html">
+{{form_register1|crispy}}
+        <button class="btn-reg" type="submit" >register</button>
+        <button class="btn-delete" type="reset">delete all</button>
+    </form>
+    </div>
+
+    <div class="div-log">
+        <form class="form-log" method="post" action="">
+            {{form_log| crispy}}
+            <button class="btn-submit" type="submit" >sign in </button>
+        </form>
+    </div>
+
+<script src="{% static 'user/js/jshome.js' %}"></script>
+</body>
+</html>
