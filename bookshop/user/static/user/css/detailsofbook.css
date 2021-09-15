@@ -1,0 +1,50 @@
+.table-detail{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border: 5px solid gold;
+    padding: 10px;
+    text-align: center;
+
+}
+h1{
+    font-family:cursive ;
+    color:#4f4f4f ;
+    text-shadow: 5px 5px 5px gold;
+}
+td{
+    padding: 5px;
+}
+.by{
+    color: #1b1b1b;
+    font-family: cursive;
+
+}
+.dollar{
+    color: green;
+}
+.only{
+    color: red;
+}
+.btn{
+    text-align: center;
+
+}
+.image_book{
+    border-radius: 20px;
+}
+.buy , .borrowe{
+    border: none;
+    color: white;
+    background-color: #1b1b1b;
+    padding: 5px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 90px;
+}
+.buy:hover , .borrowe:hover{
+    border: 2px solid #1b1b1b;
+    color: #1b1b1b;
+    background-color: white;
+}

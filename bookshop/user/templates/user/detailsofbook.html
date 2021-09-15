@@ -1,7 +1,48 @@
-<!--{% block title %}-->
-<!--    <title>{{book.title}}</title>-->
-<!--{% endblock %}-->
-<!--        <span class="types">{{book.types}}</span><br>-->
-<!--        <span class="price">{{book.price}}<span style="color: green;"> &dollar;</span></span><br>-->
-<!--        <span class="copies">{{book.num_copy}}<span style="color:red;"> only</span></span><br>-->
-<!--        <span class="available">{{book.available}} </span><br>-->
+{% extends 'user/layout/afterlogin.html' %}
+{% load static %}
+
+{% block title %}
+    <title>{{book_details.title}}</title>
+{% endblock %}
+
+{% block stytle %}
+    <link rel="stylesheet" href="{% static 'user/css/detailsofbook.css' %}" >
+{% endblock %}
+<body>
+ {% block body %}
+
+        <table class="table-detail">
+            <tr>
+                <td colspan="3">
+                 <h1>  {{book_details.title}}</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="{% static 'books/images/'%}{{book_details.image}}" class="image_book" height="250" width="250">
+                </td>
+            </tr>
+
+                <tr>
+                <td>
+                    <span class="author"><span class="by">by:</span> {{book_details.author}}</span>  <br>
+                    <span class="type">Type :{{book_details.types}}</span><br>
+                    <span class="price"> {{book_details.price}} <span class="dollar">&dollar;</span></span><br>
+                    <span class="copies">available: {{book_details.num_copy}}<span class="only"> only</span></span><br>
+                </td>
+
+            <tr>
+            {% if book_details.available %}
+            <td colspan="2" class="btn">
+                <form method="get">
+                    <button type="button" class="buy" value="buy">buy</button>
+                     <button type="button" class="borrowe" value="borrowe">borrowe</button>
+                    </form>
+            </td>
+            {% else %}
+            <button type="button" class="buy" disabled>Not available</button>
+            {% endif %}
+            </tr>
+        </table>
+{% endblock %}
+</body>

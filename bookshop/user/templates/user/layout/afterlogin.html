@@ -6,6 +6,10 @@
     {% block stytle %}
     {% endblock %}
     <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
         .nav{
             background-color: #4f4f4f;
             color: white;
@@ -31,7 +35,10 @@
 <body>
 <div class="nav">
     <a class="link logo" href="{% url 'home' %}"> book<span class="shop" >shop</span> </a>
-    <a class="link username" href="">welcome {{user.usernamee}}</a>
+    <a class="link username" href=""> {{user.username}}</a>
+    <a class="link student" href="{% url 'student' %}">all students</a>
+    <a class="link bk" href="{% url 'home' %}">all books</a>
+
 </div>
 {% block body %}
 {% endblock %}

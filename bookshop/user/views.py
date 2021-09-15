@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login as auth_login
 from django.http import HttpResponse
 from .forms import form_signup, user_log
-from books.models import books
+from .models import books , users
 
 
 # Create your views here.4
@@ -25,15 +25,17 @@ def form_reg(request):
     return render(request, 'user/forms_register.html', context)
 
 
+def detailsbookview(request,book_id):
+    book_details = books.objects.filter(id=book_id)
+    context = {"book_details": book_details[0]}
+    return render(request, 'user/detailsofbook.html',context)
+
+
 def display_home(request):
     book = books.objects.all()
     context = {'books': book}
     return render(request, 'user/home.html', context)
-
-
-def detailsbookview(request):
-    book_details = books.objects.filter(id=5)
-    context = {"book_details": book_details}
-    # print(request)
-    return render(request, 'user/detailsofbook.html', context)
-
+def allstudensview(request):
+    student=users()
+    context={'users':users}
+    return render(request , 'user/student_page.html', context)

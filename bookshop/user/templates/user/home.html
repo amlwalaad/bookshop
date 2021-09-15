@@ -12,11 +12,12 @@
 
 <div class="products">
 {% for book in books %}
+    {% if book.available %}
     <div class="books">
      <span class="img"> <img src="{%static 'books/images/'%}{{book.image}}" width="250" height="250"></span>  <br>
         <span class="title">{{book.title}}</span><br>
         <span class="author"><span class="by" style="font-family:cursive; color: #00363a;"> by</span> {{book.author}}</span><br>
-     <a href="details/" class="buy">detail</a>
+        <a href="{{book.id}}" class="buy">detail</a>
 <!--        {% if book.available %}-->
 <!--        <button type="button" class="buy">buy</button>-->
 <!--        <button type="button" class="borrowe">borrowe</button>-->
@@ -25,6 +26,7 @@
 
 
     </div>
+    {% endif %}
     {% endfor %}
 </div>
 {% endblock %}

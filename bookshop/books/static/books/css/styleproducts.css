@@ -8,11 +8,10 @@ text-align: center;
 .books{
     display: inline-block;
     font-family: sans-serif;
-    font-weight: bolder;
     border-radius: 5px;
     box-shadow: 5px 5px 5px black;
     margin: 10px;
-    padding: 10px;
+    padding: 40px;
 }
 /*.img{*/
 /*margin-left: 20px;*/
@@ -24,16 +23,20 @@ text-align: center;
 }
 .author , .types , .price ,.copies ,.available{
 position:relative;
-    top:10px
+    top:10px;
+    bottom: 10px;
 }
 .buy , .borrowe {
-    font-weight: bolder;
+    font-weight: normal;
     border-radius: 10px;
-    padding: 10px;
-    margin: 20px;
+    padding: 5px;
     color: white;
     background-color: black;
     border: 0px;
+    text-decoration: none;
+    position:relative;
+    top:20px;
+    bottom: 20px;
 }
 .buy:hover , .borrowe:hover {
     color: black;
