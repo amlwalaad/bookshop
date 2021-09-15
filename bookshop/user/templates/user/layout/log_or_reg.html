@@ -1,0 +1,31 @@
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {% endblock %}
+
+    <link href="{% static 'user/css/log_or_register.css' %}" rel="stylesheet">
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+<div class="log-register">
+   <a href="{% url 'login' %}"><button class="log-in" type="button">log in</button></a>
+    <a href="{% url 'register'%}"><button id="sign-up" type="button">sign up</button></a>
+</div>
+{% block forms_reg %}
+
+{% endblock %}
+
+{% block forms_log %}
+
+{% endblock %}
+<!--<script src="{% static 'user/js/jshome.js' %}"></script>-->
+</body>
+</html>

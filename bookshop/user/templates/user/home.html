@@ -1,32 +1,30 @@
+{% extends 'user/layout/afterlogin.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>home</title>
-    <link href="{% static 'books/css/styleproducts.css'%}" rel="stylesheet">
 
-</head>
-<body>
+{% block title %}
+    <title>{{user.username}}</title>
+{% endblock %}
+    {% block stytle %}
+
+    <link href="{% static 'books/css/styleproducts.css'%}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+
 <div class="products">
 {% for book in books %}
     <div class="books">
      <span class="img"> <img src="{%static 'books/images/'%}{{book.image}}" width="250" height="250"></span>  <br>
         <span class="title">{{book.title}}</span><br>
-        <span class="author">{{book.author}}</span><br>
-        <span class="types">{{book.types}}</span><br>
-        <span class="price">{{book.price}}<span style="color: green;"> &dollar;</span></span><br>
-        <span class="copies">{{book.num_copy}}<span style="color:red;"> only</span></span><br>
-        <span class="available">{{book.available}} </span><br>
-        {% if book.available %}
-        <button type="button" class="buy">buy</button>
-        <button type="button" class="borrowe">borrowe</button>
-        {% endif %}
+        <span class="author"><span class="by" style="font-family:cursive; color: #00363a;"> by</span> {{book.author}}</span><br>
+     <a href="details/" class="buy">detail</a>
+<!--        {% if book.available %}-->
+<!--        <button type="button" class="buy">buy</button>-->
+<!--        <button type="button" class="borrowe">borrowe</button>-->
+<!--        {% endif %}-->
 
 
 
     </div>
     {% endfor %}
 </div>
-</body>
-</html>
+{% endblock %}

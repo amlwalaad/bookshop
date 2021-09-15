@@ -1,0 +1,44 @@
+.div-log{
+    text-align: center;
+
+}
+.form-log{
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 20px;
+}
+input{
+    width: 70%;
+    margin-top: 5px ;
+    margin-bottom: 5px;
+    padding:10px;
+    border: none;
+    border-bottom: 3px solid black;
+}
+input:focus {
+  background-color: lightblue;
+    border: none;
+    border-bottom: 3px solid black;
+}
+
+.btn-submit {
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 5px;
+    font-family: SansSerif;
+    color: white;
+    background-color: black;
+    border: 0px;
+    margin: 20px 50px 10px;
+
+}
+.btn-submit:hover {
+        border: 3px solid black;
+    color: black;
+    background-color: white;
+}

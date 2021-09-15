@@ -1,0 +1,59 @@
+
+.div-reg{
+    /*border-radius: 10px;*/
+    /*margin-top: 10px;*/
+    /*box-shadow: 5px 5px 5px black;*/
+    /*font-family: SansSerif;*/
+    /*font-weight: bold;*/
+    /*text-align: center;*/
+    /*padding-bottom: 50px;*/
+    /*padding-top: 50px;*/
+    text-align: center;
+    color: #4f4f4f;
+    width: 50%;
+    margin:auto;
+}
+.form-reg{
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    margin-top: 100px;
+}
+label{
+    margin-bottom: 5px;
+    margin-bottom: 5px;
+    color: #5E5694;
+    display: inline-block;
+}
+
+input{
+    width: 70%;
+    padding:10px;
+    border-radius: 10px;
+    display: block;
+    margin: 5px auto;
+}
+#id_is_superuser{
+    position: relative;
+    left: 10px;
+}
+
+.btn-reg , .btn-delete{
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 5px;
+    font-family: SansSerif;
+    color: white;
+    background-color: black;
+    border: 0px;
+    margin: 20px 50px 10px;
+
+}
+ .btn-reg:hover , .btn-delete:hover{
+        border: 3px solid black;
+    color: black;
+    background-color: white;
+}

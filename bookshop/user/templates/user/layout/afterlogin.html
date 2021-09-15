@@ -3,11 +3,37 @@
 <head>
 {% block title %}
     {% endblock %}
+    {% block stytle %}
+    {% endblock %}
+    <style>
+        .nav{
+            background-color: #4f4f4f;
+            color: white;
+            padding: 10px;
+        }
+        .shop{
+            color:gold;
+            font-family:cursive;
+        }
+        .link{
+            text-decoration: none;
+            font-size: medium;
+            color: white;
+            padding: 10px;
+        }
+        .username{
+            position: relative;
+            left: 1000px;
+        }
+
+    </style>
 </head>
 <body>
 <div class="nav">
-    <a class="anchar logo" href="{% url 'home' %}"></a>
+    <a class="link logo" href="{% url 'home' %}"> book<span class="shop" >shop</span> </a>
+    <a class="link username" href="">welcome {{user.usernamee}}</a>
 </div>
-</div>
+{% block body %}
+{% endblock %}
 </body>
 </html>
