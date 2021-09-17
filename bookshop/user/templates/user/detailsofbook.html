@@ -1,4 +1,5 @@
-{% extends 'user/layout/afterlogin.html' %}
+ {% extends 'user/layout/afterlogin.html' %}
+
 {% load static %}
 
 {% block title %}
@@ -35,8 +36,7 @@
             {% if book_details.available %}
             <td colspan="2" class="btn">
                 <form method="get">
-                    <button type="button" class="buy" value="buy">buy</button>
-                     <button type="button" class="borrowe" value="borrowe">borrowe</button>
+                    <a href="{% url 'shoppingcart' %}{{book_details.id}}" class="borrowe">borrowe</a>
                     </form>
             </td>
             {% else %}

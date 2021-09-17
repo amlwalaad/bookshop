@@ -1,0 +1,82 @@
+{% extends 'user/layout/afterlogin.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block title %}
+<title>new book</title>
+{% endblock %}
+{% block stytle %}
+<style>
+    .div-add{
+        text-align:center;
+        width: 70%;
+        margin: auto;
+        font-size: medium;
+        font-weight: bold;
+        color: #4f4f4f;
+
+    }
+    label{
+
+    }
+    input{
+        display:block;
+        border-radius: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .form-add{
+        box-shadow: 0px 0px 5px gold;
+        margin: 50px;
+        padding: 50px;
+        width: 50%;
+
+    }
+    #id_available{
+        display: inline;
+    }
+    select{
+        display: block;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .save{
+        color: white;
+        background-color: #4f4f4f;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
+    .save:hover{
+        border: 3px solid #4f4f4f;
+        color: #4f4f4f;
+        background-color: white;
+    }
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="div-add">
+
+
+    <form class="form-add" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>add new book</h1>
+        {% for field in addbookform %}
+        {{field.label_tag}}
+        {% render_field field class="form-control"%}
+        {%endfor %}
+        <button type="submit" class="save">Save</button>
+    </form>
+</div>
+
+
+
+{% endblock %}

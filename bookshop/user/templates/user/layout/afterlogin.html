@@ -28,17 +28,31 @@
         .username{
             position: relative;
             left: 1000px;
+            clear: left;
         }
 
     </style>
 </head>
 <body>
+{% if user.is_superuser %}
 <div class="nav">
-    <a class="link logo" href="{% url 'home' %}"> book<span class="shop" >shop</span> </a>
+    <a class="link logo" href="{% url 'home' %}"> book<span class="shop" >shop</span></a>
     <a class="link username" href=""> {{user.username}}</a>
+    <a class="link username" href="{% url 'logout' %}"> logout </a>
+    <a class="link changepw" href="{% url 'changePW' %}"> change password </a>
     <a class="link student" href="{% url 'student' %}">all students</a>
     <a class="link bk" href="{% url 'home' %}">all books</a>
+    <a class="link addbk" href="{% url 'addbook' %}">new book</a>
+</div>
+{% endif %}
+{% if not user.is_superuser %}
+<div class="nav">
+    <a class="link logo" href="{% url 'home' %}"> book<span class="shop" >shop</span></a>
+    <a class="link username" href=""> {{user.username}}</a>
+    <a class="link bk" href="{% url 'shoppingcart' %}">my books</a>
+    <a class="link username" href="{% url 'logout' %}"> logout </a>
 
+    {% endif %}
 </div>
 {% block body %}
 {% endblock %}

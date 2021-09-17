@@ -1,8 +1,42 @@
 {% extends 'user/layout/afterlogin.html' %}
 {% block title %}
+<title>all student</title>
     {% endblock %}
     {% block stytle %}
+        <style>
+           .div-st{
+               display: inline-block;
+               margin: 10px;
+               border:3px solid #4f4f4f;
+               padding: 10px;
+           }
+            .info{
+                display: block;
+                padding: 10px;
+            }
+            .st-style{
+                font-family: Arial;
+                font-weight: bold;
+                color: #4f4f4f;
+            }
+
+        </style>
     {% endblock %}
 
 {% block body %}
+{% for st in student %}
+{% if not st.is_superuser %}
+<div class="div-st">
+    <h1>{{st.username}}</h1>
+    <span class="info"> <span class="st-style">student id :</span>{{st.id}}</span>
+    <span class="info"><span class="st-style">first name :</span>{{st.first_name}}</span>
+    <span class="info"><span class="st-style">last name:</span>{{st.last_name}}</span>
+    <span class="info"><span class="st-style">email address :</span>{{st.email}}</span>
+    <span class="info"><span class="st-style">the last join to website:</span>{{st.last_login}}</span>
+    <span class="info"><span class="st-style">the date of join :</span> {{st.date_joined}}</span>
+    <span class="info"><span class="st-style">is active :</span>{{st.is_active}}</span>
+</div>
+{% endif %}
+
+{% endfor %}
 {% endblock %}

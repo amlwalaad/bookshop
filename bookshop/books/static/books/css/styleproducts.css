@@ -13,20 +13,17 @@ text-align: center;
     margin: 10px;
     padding: 40px;
 }
-/*.img{*/
-/*margin-left: 20px;*/
-/*}*/
 .title{
     font-weight: bolder;
     color: #a41515;
-    border-bottom:3px solid #00363a;
+    border-bottom:3px solid gold;
 }
 .author , .types , .price ,.copies ,.available{
 position:relative;
     top:10px;
     bottom: 10px;
 }
-.buy , .borrowe {
+.buy {
     font-weight: normal;
     border-radius: 10px;
     padding: 5px;
@@ -42,4 +39,33 @@ position:relative;
     color: black;
     background-color: white;
     border: 3px solid black;
+}
+.edit , .Delete{
+    font-weight: normal;
+    border-radius: 10px;
+    padding: 5px;
+    border: 0px;
+    text-decoration: none;
+    position:relative;
+    top:20px;
+    bottom: 20px;
+    cursor: pointer;
+}
+.edit{
+    background-color: #00363a;
+    color: white;
+}
+.Delete{
+    background-color: #a41515;
+    color: white;
+}
+.Delete:hover{
+    background-color:white ;
+    color: #a41515 ;
+    border: 3px solid #a41515;
+}
+.edit:hover{
+    background-color: white;
+    color: #00363a;
+    border: 3px solid #00363a;
 }

@@ -1,6 +1,10 @@
+body{
+        background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .log-register{
     text-align: center;
-    box-shadow: 5px 5px 5px black;
     border-radius: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -8,7 +12,6 @@
 
 }
 .log-in , #sign-up{
-    font-weight: bolder;
     border-radius: 10px;
     font-size: 30px;
     padding: 5px;
@@ -16,14 +19,14 @@
     margin-left: 50px;
     font-family: SansSerif;
     color: white;
-    background-color: black;
+    background-color:#4f4f4f;
     border: 0px;
 
 
 
 }
 .log-in:hover , #sign-up:hover{
-    border: 3px solid black;
-    color: black;
+    border: 3px solid #4f4f4f;
+    color: #4f4f4f;
     background-color: white;
 }

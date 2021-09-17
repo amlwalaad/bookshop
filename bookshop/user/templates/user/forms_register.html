@@ -13,9 +13,8 @@
     {% endblock %}
 {% block forms_reg %}
 <div class="div-reg">
-    <form class="row g-3" method="post" novalidate>
+    <form class="form-reg" method="post" novalidate>
         {% csrf_token %}
-<!--        {{form_register1}}-->
         {% for field in form_register1%}
         <div class="from-group">
             {{field.label_tag}}
