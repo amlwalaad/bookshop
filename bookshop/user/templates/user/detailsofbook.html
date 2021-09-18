@@ -33,10 +33,10 @@
                 </td>
 
             <tr>
-            {% if book_details.available %}
+            {% if book_details.available and not user.is_superuser %}
             <td colspan="2" class="btn">
                 <form method="get">
-                    <a href="{% url 'shoppingcart' %}{{book_details.id}}" class="borrowe">borrowe</a>
+                    <a href="{% url 'date_return' book_details.title user.username%}" class="borrowe">borrowe</a>
                     </form>
             </td>
             {% else %}

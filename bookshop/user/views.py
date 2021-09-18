@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
-from .forms import form_signup
+from .forms import form_signup ,form_borrowe
 from books.models import books
-from user.models import users
 from books.forms import form_books
+from datetime import date
 
 
 # Create your views here.4
@@ -21,9 +21,19 @@ def form_reg(request):
     return render(request, 'user/forms_register.html', context)
 
 
-def shoppingcartview(request, book_id):
-    book_boorowe = books.objects.filter(id=book_id)
-    context = {'book_boorowe': book_boorowe}
+def date_return_view(request, book_title ,user_name):
+    book_boorowe = books.objects.filter(title=book_title)
+    form=form_borrowe()
+    # form.user=user_name
+    # form.book_title=book_title
+    # form.data_borrowe=date.today()
+    form_borrowe(user_name,book_title , date.today() )
+    if request.method=='POST':
+        print(request.POST)
+        print(form_borrowe())
+        # form.data_return=request.POST['date-return']
+        # form.save()
+    context = {'book_boorowe': book_boorowe,}
     return render(request, 'user/shoppingcart.html', context)
 
 
@@ -77,5 +87,3 @@ def delete(request,PK):
     context={'deletedbook':deletedbook}
     return render(request , 'user/deletebook.html',context)
 
-def mybooks(request):
-    return render(request, 'user/shoppingcart.html')

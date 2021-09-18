@@ -9,6 +9,13 @@
 {% endblock %}
 
 {% block body %}
+<div class="confirm">
+    <form method="post" >
+        {% csrf_token %}
+        <input type="date" name="date-return">
+        <button type="submit" class="btn-confirm">borrowe</button>
+    </form>
+</div>
 {% endblock %}
 
 
