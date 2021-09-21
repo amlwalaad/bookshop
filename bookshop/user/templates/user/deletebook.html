@@ -1,0 +1,58 @@
+{% extends 'user/layout/afterlogin.html' %}
+{% block title %}
+<title>delete </title>
+{% endblock %}
+{% block stytle %}
+<style>
+    .div-del{
+        color: #4f4f4f;
+        text-align: center;
+        font-family: Arial;
+        margin-top: 100px;
+    }
+    .btn-delete{
+        color: white;
+        background-color: #a41515;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .btn-delete:hover{
+        background-color:white ;
+        color: #a41515 ;
+        border: 3px solid #a41515;
+    }
+    .form-delete{
+        width: 40%;
+        box-shadow: 0px 0px 4px #a41515;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .cancel{
+        background-color: white;
+        color: #006b1b;
+        text-decoration: none;
+        padding: 9px;
+        border-radius: 10px;
+        border: none;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="div-del">
+    <form class="form-delete" method="post" >
+        {% csrf_token %}
+    <h1>are you sure to delete<span style="color: gold"> {{deletedbook.title}}</span> ?</h1>
+        <a href="{%url 'home'%}" class="cancel">cancel</a>
+    <button type="submit" class="btn-delete">delete</button>
+    </form>
+</div>
+{% endblock %}
