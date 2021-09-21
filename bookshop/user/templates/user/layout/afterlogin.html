@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,8 +48,8 @@
     <a class="link changepw" href="{% url 'changePW' %}"> change password </a>
     <a class="link student" href="{% url 'student' %}">all students</a>
     <a class="link bk" href="{% url 'home' %}">all books</a>
+    <a class="link bk" href="">borrow books</a>
     <a class="link addbk" href="{% url 'addbook' %}">new book</a>
-
 </div>
 {% endif %}
 {% if not user.is_superuser %}
@@ -63,5 +64,9 @@
 {% block body %}
 
 {% endblock %}
+<script src="{% static 'user/js/jquery-3.6.0.min.js' %}">
+</script>
+<script src="{% static 'user/js/jshome' %}">
+</script>
 </body>
 </html>

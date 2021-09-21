@@ -1,6 +1,6 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from .views import form_reg, display_home, detailsbookview, allstudensview,  addbook  ,updatebook,delete,date_return_view,my_book_view ,searchview,profileview
+from .views import form_reg, display_home, detailsbookview, allstudensview,  addbook  ,updatebook,delete,date_return_view,my_book_view ,searchview,profileview,editview
 
 urlpatterns = [
     path('home/<int:book_id>/', detailsbookview ),
@@ -16,7 +16,8 @@ urlpatterns = [
     path('updateBook/<int:PK>/',updatebook,name='update'),
     path('deletebook/<int:PK>/', delete ,name='deletebook'),
     path('mybooks/<int:user_id>/',my_book_view,name='my_books'),
-    path('search/<int:student_id>/',searchview , name='search')
-    path('profile/',profileview ,name='profile')
+    path('search/<int:student_id>/',searchview , name='search'),
+    path('profile/',profileview ,name='profile'),
+    path('editprofile/',editview ,name='editprofile'),
 
 ]

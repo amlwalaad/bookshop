@@ -1,0 +1,50 @@
+{% extends 'user/layout/afterlogin.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+<title>edit profile</title>
+    {% endblock %}
+    {% block stytle %}
+<style>
+    .edit-form{
+        margin: auto;
+        width: 40%;
+        padding: 20px;
+        margin-top: 100px;
+        font-weight: bold;
+        color: #4f4f4f;
+        text-align: center;
+        box-shadow:0 0 3px #4f4f4f;
+
+    }
+    small{
+        display: block;
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
+    input{
+        margin: 10px;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .btn-save{
+
+        background-color: #4f4f4f;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        cursor: pointer;
+    }
+</style>
+    {% endblock %}
+
+
+{% block body %}
+<form class="edit-form" method="post">
+  {% csrf_token %}
+  {{user_form|crispy }}
+    <button class="btn-save" type="submit">save</button>
+</form>
+
+{% endblock %}

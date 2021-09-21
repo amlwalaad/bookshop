@@ -1,0 +1,67 @@
+{% extends 'user/layout/afterlogin.html' %}
+{% block title %}
+    {% endblock %}
+    {% block stytle %}
+<style>
+    table{
+        margin: auto;
+        margin-top: 150px;
+        box-shadow: 0 0 5px gold;
+        padding: 10px;
+        background-color: #4f4f4f;
+        color: white;
+        border-radius: 10px;
+        background-color: rgba(0,0,0,0.4);
+
+    }
+    td{
+        padding: 10px;
+    }
+
+    .edit-profile{
+        border-radius: 10px;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        background-color: gold;
+        color: white;
+        font-weight: bold;
+    }
+    .btn-edit{
+        text-align: center;
+    }
+</style>
+    {% endblock %}
+
+
+{% block body %}
+<div class="div-profile">
+<table>
+    <tr>
+        <td class="userinfo">id :</td>
+        <td class="info">{{ user.id }}</td>
+    </tr>
+    <tr>
+        <td class="userinfo">user name :</td>
+         <td class="info">{{ user.username }}</td>
+    </tr>
+
+    <tr>
+        <td class="userinfo">full name:</td>
+         <td class="info">{{ user.first_name }} {{ user.last_name }}</td>
+    </tr>
+
+    <tr>
+        <td class="userinfo">email :</td>
+         <td class="info">{{ user.email }}</td>
+    </tr>
+    <tr>
+        <td colspan="2" class="btn-edit"><form method="post">
+            {% csrf_token %}
+            <button class="edit-profile" type="submit" name="edit-profile">edit profile</button>
+        </form> </td>
+    </tr>
+
+</table>
+    </div>
+{% endblock %}
