@@ -1,0 +1,45 @@
+{% extends 'user/layout/afterlogin.html' %}
+{% block title %}
+<title>mybook</title>
+    {% endblock %}
+    {% block stytle %}
+<style>
+    .div-borrow_book{
+        display: inline-block;
+        border-radius: 50px;
+        box-shadow: 0px 0px 5px gold;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+    }
+    .bro-book{
+        display: block;
+        padding: 10px;
+    }
+    .btn-return{
+        color: white;
+        background-color: #00363a;
+        border-radius: 5px;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+</style>
+    {% endblock %}
+
+{% block body %}
+{% for book in my_books %}
+<div class="div-borrow_book">
+    <span class="bro-book">{{book.book_id}}</span>
+    <span class="bro-book">{{book.data_borrowe}}</span>
+    <span class="bro-book">{{book.data_return}}</span>
+    {%csrf_token%}
+    <form method="post" class="form-return" >
+        {%csrf_token%}
+        <input type="hidden" value="{{book.id}}" name="id">
+        <button class="btn-return" type="submit">return book</button>
+    </form>
+    </div>
+{% endfor %}
+{% endblock %}

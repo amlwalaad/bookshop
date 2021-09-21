@@ -6,13 +6,44 @@
 {% endblock %}
 
 {% block stytle %}
+<style>
+    .confirm{
+    }
+    .form-confirm{
+        width: 50%;
+        box-shadow: 0px 0px 5px gold;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        margin: auto;
+        margin-top: 150px;
+    }
+    .btn-confirm{
+        margin: 20px;
+        color: white;
+        background-color: gold;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+
+
+    }
+    .input-date-return{
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        margin-top: 50px;
+
+    }
+</style>
 {% endblock %}
 
 {% block body %}
 <div class="confirm">
-    <form method="post" >
-        {% csrf_token %}
-        <input type="date" name="date-return">
+    <form method="post"  class="form-confirm">
+        {% csrf_token  %}
+        <input type="date" name="date-return" class="input-date-return"><br>
         <button type="submit" class="btn-confirm">borrowe</button>
     </form>
 </div>

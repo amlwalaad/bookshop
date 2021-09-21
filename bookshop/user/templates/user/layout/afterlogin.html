@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
 {% block title %}
     {% endblock %}
     {% block stytle %}
     {% endblock %}
     <style>
         body{
+            background-image: url('../../../static/user/images/background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
             margin: 0px;
             padding: 0px;
         }
@@ -27,9 +31,10 @@
         }
         .username{
             position: relative;
-            left: 1000px;
+            left: 900px;
             clear: left;
         }
+
 
     </style>
 </head>
@@ -43,18 +48,20 @@
     <a class="link student" href="{% url 'student' %}">all students</a>
     <a class="link bk" href="{% url 'home' %}">all books</a>
     <a class="link addbk" href="{% url 'addbook' %}">new book</a>
+
 </div>
 {% endif %}
 {% if not user.is_superuser %}
 <div class="nav">
     <a class="link logo" href="{% url 'home' %}"> book<span class="shop" >shop</span></a>
     <a class="link username" href=""> {{user.username}}</a>
-    <a class="link bk" href="#">my books</a>
+    <a class="link bk" href="{% url 'my_books' user.id%}">my books</a>
     <a class="link username" href="{% url 'logout' %}"> logout </a>
 
     {% endif %}
 </div>
 {% block body %}
+
 {% endblock %}
 </body>
 </html>

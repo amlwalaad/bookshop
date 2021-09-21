@@ -19,11 +19,28 @@
                 font-weight: bold;
                 color: #4f4f4f;
             }
+            .search-input{
+            float:right ;
+            position: relative;
+            top: -35px;
+            width: 20%;
+            padding: 5px;
+            border-radius: 10px;
+
+        }
+        .search-input:focus{
+            border: none;
+
+        }
 
         </style>
     {% endblock %}
 
 {% block body %}
+<form method="post">
+        {% csrf_token %}
+        <input type="search" name="search" placeholder="search..." class="search-input">
+    </form>
 {% for st in student %}
 {% if not st.is_superuser %}
 <div class="div-st">

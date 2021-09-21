@@ -14,3 +14,8 @@ class form_borrowe(ModelForm):
     class Meta:
         model = borrowred_books
         fields="__all__"
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username','first_name', 'last_name', 'email')

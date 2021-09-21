@@ -1,0 +1,71 @@
+{% extends 'user/layout/afterlogin.html' %}
+{% block title %}
+<title>search result</title>
+    {% endblock %}
+    {% block stytle %}
+<style>
+    .search-div{
+        text-align: left;
+    }
+    h1{
+        color: #4f4f4f;
+        font-family: Arial;
+        text-align: center;
+    }
+    hr{
+        width: 50%;
+        height: 2px;
+        background-color: #570808;
+        border-radius: 10px;
+        border: none;
+    }
+    .meg{
+        margin-top: 50px;
+        font-size: 50px;
+        font-weight: bold;
+        font-family: sans-serif;
+        color: #ba2121;
+        text-align: center;
+
+    }
+    .info{
+        display:block;
+        font-size: 25px;
+         padding: 10px;
+    }
+    .st-style{
+        color: #570808;
+        font-weight:bold;
+    }
+    .div-st{
+        border-radius: 10px;
+        box-shadow: 0 0 5px gold;
+        width: 40%;
+        margin: auto;
+        margin-top: 50px;
+        padding: 10px;
+    }
+</style>
+    {% endblock %}
+
+{% block body %}
+<div class="search-div">
+    <h1>search result</h1>
+    <hr>
+    {% if result == 'NOT FOUND STUDENT' %}
+            <div class="meg">
+                {{result}}
+            </div>
+    {% else %}
+            <div class="div-st">
+            <h1>{{st.username}}</h1>
+            <span class="info"> <span class="st-style">student id :</span>{{result.id}}</span>
+            <span class="info"> <span class="st-style">student username :</span>{{result.username}}</span>
+            <span class="info"><span class="st-style">first name :</span>{{result.first_name}}</span>
+            <span class="info"><span class="st-style">last name:</span>{{result.last_name}}</span>
+            <span class="info"><span class="st-style">email address :</span>{{result.email}}</span>
+            </div>
+    {% endif %}
+
+</div>
+{% endblock %}

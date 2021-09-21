@@ -11,7 +11,7 @@
 {% endblock %}
 <body>
  {% block body %}
-
+<div class="div-details">
         <table class="table-detail">
             <tr>
                 <td colspan="3">
@@ -29,20 +29,26 @@
                     <span class="author"><span class="by">by:</span> {{book_details.author}}</span>  <br>
                     <span class="type">Type :{{book_details.types}}</span><br>
                     <span class="price"> {{book_details.price}} <span class="dollar">&dollar;</span></span><br>
-                    <span class="copies">available: {{book_details.num_copy}}<span class="only"> only</span></span><br>
+                    <span class="summary"> {{book_details.summary}} </span><br>
+
                 </td>
 
             <tr>
             {% if book_details.available and not user.is_superuser %}
             <td colspan="2" class="btn">
                 <form method="get">
-                    <a href="{% url 'date_return' book_details.title user.username%}" class="borrowe">borrowe</a>
+                    <a href="{% url 'date_return' book_details.id user.id%}" class="borrowe">borrowe</a>
+
                     </form>
             </td>
             {% else %}
-            <button type="button" class="buy" disabled>Not available</button>
-            {% endif %}
+                <td> <button type="button" class="buy" disabled>Not available</button></td>
             </tr>
+            <tr>
+                <td><span class="return-data">book will return in </span>{{bor_book.data_return}}</td>
+            </tr>
+            {% endif %}
         </table>
+    </div>
 {% endblock %}
 </body>

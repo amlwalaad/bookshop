@@ -1,3 +1,10 @@
+
+body{
+    background-image: url("../images/background.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .table-detail{
     margin-left: auto;
     margin-right: auto;
@@ -5,6 +12,8 @@
     border: 5px solid gold;
     padding: 10px;
     text-align: center;
+    width: 50%;
+    margin-bottom: 50px;
 
 }
 h1{
@@ -48,4 +57,14 @@ td{
     border: 2px solid #4f4f4f;
     color: #4f4f4f;
     background-color: white;
+}
+.return-data{
+    color: #570808;
+    font-weight: bold;
+}
+.summary{
+    display: block;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
 }
