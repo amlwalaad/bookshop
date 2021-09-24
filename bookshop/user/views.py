@@ -13,7 +13,7 @@ from datetime import date
 
 def form_reg(request):
     form_register1 = form_signup()
-    context = {'form_register1': form_register1}
+    context = {'form': form_register1}
     if request.method == 'POST':
         form_register1 = form_signup(request.POST)
         if form_register1.is_valid():
@@ -69,18 +69,23 @@ def display_home(request):
     return render(request, 'user/home.html', context)
 
 
-def searchview(request, student_id):
-    students = User.objects.all()
-    result = 'NOT FOUND STUDENT'
-    print(request.POST)
-    for student in students:
-        if student_id == student.id:
-            result = User.objects.get(id=student_id)
-    if request.method == 'POST':
-        student_id = request.POST['search']
-        return redirect(searchview, student_id)
-    context = {"result": result}
-    return render(request, 'user/search.html', context)
+def searchview(request):
+    if request.method=='POST':
+        student_id=request.POST['id']
+        result = User.objects.filter(id__contains=student_id)
+        # for student in students:
+        #     if student_id == student.id:
+        #         result = User.objects.get(id=student_id)
+        # if request.method == 'POST':
+        #     student_id = request.POST['search']
+        #     return redirect(searchview, student_id)
+        context = {"result": result}
+        return render(request, 'user/search.html', context)
+    else:
+        result=''
+        context = {"result": result}
+        return render(request, 'user/search.html',context)
+
 
 
 def allstudensview(request):
@@ -126,6 +131,7 @@ def delete(request, PK):
 
 
 def my_book_view(request, user_id):
+    user_id = 9
     my_books = borrowred_books.objects.filter(user=user_id)
     # print(my_books)
     if request.method == 'POST':
@@ -145,7 +151,7 @@ def editview(request):
         if user_form.is_valid():
             user_form.save()
             return redirect(profileview)
-    context={"user_form": user_form}
+    context={"form": user_form}
     return render(request, 'user/edit.html',context)
 
 def profileview(request):

@@ -52,18 +52,21 @@
 <div class="search-div">
     <h1>search result</h1>
     <hr>
-    {% if result == 'NOT FOUND STUDENT' %}
-            <div class="meg">
-                {{result}}
+    {% if result %}
+             <div class="div-st">
+                 {%for st in result %}
+                        <h1>{{st.username}}</h1>
+                        <span class="info"> <span class="st-style">student id :</span>{{st.id}}</span>
+                        <span class="info"> <span class="st-style">student username :</span>{{st.username}}</span>
+                        <span class="info"><span class="st-style">first name :</span>{{st.first_name}}</span>
+                        <span class="info"><span class="st-style">last name:</span>{{st.last_name}}</span>
+                        <span class="info"><span class="st-style">email address :</span>{{st.email}}</span>
+                 {% endfor %}
             </div>
+
     {% else %}
-            <div class="div-st">
-            <h1>{{st.username}}</h1>
-            <span class="info"> <span class="st-style">student id :</span>{{result.id}}</span>
-            <span class="info"> <span class="st-style">student username :</span>{{result.username}}</span>
-            <span class="info"><span class="st-style">first name :</span>{{result.first_name}}</span>
-            <span class="info"><span class="st-style">last name:</span>{{result.last_name}}</span>
-            <span class="info"><span class="st-style">email address :</span>{{result.email}}</span>
+            <div class="meg">
+                not found
             </div>
     {% endif %}
 

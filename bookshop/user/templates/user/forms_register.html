@@ -8,39 +8,55 @@
     <title>regsiter</title>
     {% block style %}
     <link rel="stylesheet" href="{% static 'user/css/style_register.css' %}">
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     {% endblock %}
 {% block forms_reg %}
 <div class="div-reg">
     <form class="form-reg" method="post" novalidate>
         {% csrf_token %}
-        {% for field in form_register1%}
-        <div class="from-group">
-            {{field.label_tag}}
-            {% if form_register1.is_bound %}
-                {% if field.errors %}
-                    {% render_field field class="form-control is-invalid"%}
-                        {% for error in field.errors %}
-                        <div class="invalid-feedback"> {{error}}</div>
-                        {% endfor %}}
-                {%else%}
-                    {% render_field fields class="form-control is-valid"%}
+        {% if form.non_field_errors%}
+    <div class="alert alert-danger" role="alerts">
+        {%for error in form.non_field_errors%}
+             <p {%if forloop.last%} class="mb-0" {%endif%}>{{error}}</p>
+        {%endfor%}
+    </div>
+{%endif%}
+{% for field in form %}
+    <div class="form-group">
+      {{field.label_tag}}
 
-                {%endif%}
-            {% else %}
-                 {% render_field field class="form-control" %}
-            {% endif %}
-            </div>
-        {%endfor %}
+      {%if form.is_bound%}
+        {%if field.errors%}
+           {% render_field field class="form-control is-invalid" %}
+            {%for error in field.errors%}
+              <div class="invalid-feedback">{{error}}</div>
+            {%endfor%}
+        {%else%}
+      {% render_field field class="form-control is-valid" %}
+        {%endif%}
+      {%else%}
+      {% render_field field class="form-control" %}
+
+      {%endif%}
 
 
+    </div>
+    {%if field.help_text%}
+    <small class="form-text text-muted">
+      {{field.help_text}}
+    </small>
+    {%endif%}
+
+    {% endfor %}
+        <br><a href="{% url 'login' %}">are you already have account ?</a><br>
        <button class="btn-delete" type="submit" >sign up</button>
        <button class="btn-delete" type="reset">delete all</button>
     </form>
 <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>-->
 
 </div>
+
 {% endblock %}
 
 

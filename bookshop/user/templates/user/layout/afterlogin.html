@@ -7,6 +7,7 @@
     {% endblock %}
     {% block stytle %}
     {% endblock %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         body{
             background-image: url('../../../static/user/images/background.jpg');
@@ -15,58 +16,81 @@
             margin: 0px;
             padding: 0px;
         }
-        .nav{
-            background-color: #4f4f4f;
-            color: white;
-            padding: 10px;
-        }
+
         .shop{
             color:gold;
             font-family:cursive;
         }
-        .link{
+        a{
             text-decoration: none;
-            font-size: medium;
-            color: white;
-            padding: 10px;
-        }
-        .username{
-            position: relative;
-            left: 900px;
-            clear: left;
-        }
 
-
+        }
     </style>
 </head>
 <body>
-{% if user.is_superuser %}
-<div class="nav">
-    <a class="link logo" href="{% url 'home' %}"> book<span class="shop" >shop</span></a>
-    <a class="link username" href=""> {{user.username}}</a>
-    <a class="link username" href="{% url 'logout' %}"> logout </a>
-    <a class="link changepw" href="{% url 'changePW' %}"> change password </a>
-    <a class="link student" href="{% url 'student' %}">all students</a>
-    <a class="link bk" href="{% url 'home' %}">all books</a>
-    <a class="link bk" href="">borrow books</a>
-    <a class="link addbk" href="{% url 'addbook' %}">new book</a>
-</div>
-{% endif %}
-{% if not user.is_superuser %}
-<div class="nav">
-    <a class="link logo" href="{% url 'home' %}"> book<span class="shop" >shop</span></a>
-    <a class="link username" href=""> {{user.username}}</a>
-    <a class="link bk" href="{% url 'my_books' user.id%}">my books</a>
-    <a class="link username" href="{% url 'logout' %}"> logout </a>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 
-    {% endif %}
+    <a class="navbar-brand" href="{% url 'home' %}"> book<span class="shop" >shop</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu"  aria-expanded="false" aria-label="Toggle navigation" >
+    <span class="navbar-toggler-icon"></span></button>
+
+<div class="collapse navbar-collapse" id="mainMenu">
+    {%if user.is_authenticated%}
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > {{user.username}}</a>
+                <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="userMenu">
+                    <a class="dropdown-item" href="{% url 'changePW' %}"> change password </a>
+                    <a class="dropdown-item"  href="{% url 'profile' %}">My account</a>
+                    <div class="dropdown-divider"></div>
+                 <a class="dropdown-item"  href="{% url 'logout' %}"> logout </a>
+                </div>
+            </li>
+            {% if user.is_superuser %}
+                <div class="collapse navbar-collapse" id="navbarText">
+                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                    <a class="navbar-link " href="{% url 'student' %}"> all students </a>
+                            </li>
+
+                            <li class="nav-item">
+                                     <a class="navbar-link" href="{% url 'home' %}"> all books </a>
+                            </li>
+
+                            <li class="nav-item">
+                                 <a class="navbar-link" href="{% url 'addbook' %}"> new book </a>
+                             </li>
+
+                        </ul>
+                </div>
+                <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="post">
+                    {% csrf_token %}
+                  <input class="form-control mr-sm-2" type="search" name="id" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-sm btn-outline-secondary" type="submit">Search</button>
+                </form>
+        {% else %}
+             <a class="link bk" href="{% url 'my_books' user.id%}">my books</a>
+        {% endif %}
+
+    {% else %}
+        <form class="form-inline ml-auto">
+        <a href="{% url 'login' %}" class="btn btn-outline-secondary">login</a>
+        <a href="{% url 'register' %}" class="btn btn-sm btn-outline-secondary">Signup</a>
+        </form>
+            </ul>
+    {%endif%}
+
 </div>
+
+</nav>
 {% block body %}
 
 {% endblock %}
-<script src="{% static 'user/js/jquery-3.6.0.min.js' %}">
-</script>
-<script src="{% static 'user/js/jshome' %}">
-</script>
+<script src="{% static 'user/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'user/js/popper.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>
