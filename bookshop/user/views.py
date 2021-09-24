@@ -133,9 +133,7 @@ def delete(request, PK):
 
 
 def my_book_view(request, user_id):
-    user_id = 9
     my_books = borrowred_books.objects.filter(user=user_id)
-    # print(my_books)
     if request.method == 'POST':
         book = borrowred_books.objects.get(id=request.POST['id'])
         availablee_book = books.objects.get(title=book.book_id)
