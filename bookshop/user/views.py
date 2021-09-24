@@ -65,6 +65,8 @@ def detailsbookview(request, book_id):
 
 def display_home(request):
     book = books.objects.all()
+    if request.method=='POST':
+        book=books.objects.filter(available=False)
     context = {'books': book}
     return render(request, 'user/home.html', context)
 

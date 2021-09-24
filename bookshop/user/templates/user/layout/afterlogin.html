@@ -29,15 +29,35 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-
-    <a class="navbar-brand" href="{% url 'home' %}"> book<span class="shop" >shop</span></a>
+     <a class="navbar-brand" href="{% url 'home' %}"> book<span class="shop" >shop</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu"  aria-expanded="false" aria-label="Toggle navigation" >
     <span class="navbar-toggler-icon"></span></button>
+    {% if user.is_superuser %}
+                <div class="collapse navbar-collapse" id="navbarText">
+                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item ml-3">
+                                    <a class="navbar-link " href="{% url 'student' %}"> all students </a>
+                            </li>
+
+                            <li class="nav-item ml-3">
+                                     <a class="navbar-link" href="{% url 'home' %}"> all books </a>
+                            </li>
+
+                            <li class="nav-item ml-3">
+                                 <a class="navbar-link" href="{% url 'addbook' %}"> new book </a>
+                             </li>
+
+                        </ul>
+                </div>
+
+        {% else %}
+             <a class="link bk" href="{% url 'my_books' user.id%}">my books</a>
+        {% endif %}
 
 <div class="collapse navbar-collapse" id="mainMenu">
     {%if user.is_authenticated%}
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown  mr-3">
                  <a class="nav-link dropdown-toggle" href="" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > {{user.username}}</a>
                 <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="userMenu">
                     <a class="dropdown-item" href="{% url 'changePW' %}"> change password </a>
@@ -47,38 +67,20 @@
                 </div>
             </li>
             {% if user.is_superuser %}
-                <div class="collapse navbar-collapse" id="navbarText">
-                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                    <a class="navbar-link " href="{% url 'student' %}"> all students </a>
-                            </li>
-
-                            <li class="nav-item">
-                                     <a class="navbar-link" href="{% url 'home' %}"> all books </a>
-                            </li>
-
-                            <li class="nav-item">
-                                 <a class="navbar-link" href="{% url 'addbook' %}"> new book </a>
-                             </li>
-
-                        </ul>
-                </div>
-                <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="post">
+            <form class="form-inline my-3 my-lg-0" action="{% url 'search' %}" method="post">
                     {% csrf_token %}
                   <input class="form-control mr-sm-2" type="search" name="id" placeholder="Search" aria-label="Search">
                   <button class="btn btn-sm btn-outline-secondary" type="submit">Search</button>
                 </form>
-        {% else %}
-             <a class="link bk" href="{% url 'my_books' user.id%}">my books</a>
-        {% endif %}
-
-    {% else %}
+                {% endif %}
+            {% else %}
         <form class="form-inline ml-auto">
         <a href="{% url 'login' %}" class="btn btn-outline-secondary">login</a>
         <a href="{% url 'register' %}" class="btn btn-sm btn-outline-secondary">Signup</a>
         </form>
             </ul>
     {%endif%}
+
 
 </div>
 

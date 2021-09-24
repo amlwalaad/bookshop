@@ -28,7 +28,7 @@ position:relative;
     border-radius: 10px;
     padding: 5px;
     color: white;
-    background-color: black;
+    background-color: #4f4f4f;
     border: 0px;
     text-decoration: none;
     position:relative;
@@ -38,7 +38,7 @@ position:relative;
 .buy:hover , .borrowe:hover {
     color: black;
     background-color: white;
-    border: 3px solid black;
+    border: 3px solid #4f4f4f;
 }
 .edit , .Delete{
     font-weight: normal;

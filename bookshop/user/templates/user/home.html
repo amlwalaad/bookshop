@@ -14,7 +14,15 @@
 {% block body %}
 
 <div class="products">
-{% for book in books %}
+    {% if user.is_superuser %}
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" value="borrow book only" name="bro-only" class="buy">borrow book only</button>
+        <br>
+            <br>
+    </form>
+    {% endif %}
+    {% for book in books %}
     <div class="books">
      <span class="img"> <img src="{%static 'books/images/'%}{{book.image}}" width="250" height="250"></span>  <br>
         <span class="title">{{book.title}}</span><br>
