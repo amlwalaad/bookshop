@@ -5,8 +5,7 @@
     <meta charset="utf-8">
 {% block title %}
     {% endblock %}
-    {% block stytle %}
-    {% endblock %}
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         body{
@@ -23,9 +22,17 @@
         }
         a{
             text-decoration: none;
+            color: #5a6268  ;
 
         }
+        a:hover{
+            text-decoration: none;
+            color: gold;
+        }
+
     </style>
+      {% block stytle %}
+    {% endblock %}
 </head>
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -36,7 +43,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item ml-3">
-                                    <a class="navbar-link " href="{% url 'student' %}"> all students </a>
+                                    <a class="navbar-link" href="{% url 'student' %}"> all students </a>
                             </li>
 
                             <li class="nav-item ml-3">
@@ -51,7 +58,11 @@
                 </div>
 
         {% else %}
-             <a class="link bk" href="{% url 'my_books' user.id%}">my books</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+             <a class="navbar-link" href="{% url 'my_books' user.id%}">my books</a>
+            </li>
+            </ul>
         {% endif %}
 
 <div class="collapse navbar-collapse" id="mainMenu">

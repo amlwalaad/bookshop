@@ -39,6 +39,7 @@ position:relative;
     color: black;
     background-color: white;
     border: 3px solid #4f4f4f;
+    text-decoration: none;
 }
 .edit , .Delete{
     font-weight: normal;
@@ -63,9 +64,11 @@ position:relative;
     background-color:white ;
     color: #a41515 ;
     border: 3px solid #a41515;
+    text-decoration: none;
 }
 .edit:hover{
     background-color: white;
     color: #00363a;
     border: 3px solid #00363a;
+    text-decoration: none;
 }
